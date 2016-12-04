@@ -10,19 +10,19 @@ countryTiles.addTo(map);
 
 
 //setting the gradient to display countries based on speed - gradient colors pulled from colorbrewer
-function getColor(speed) {
-    return speed > 20  ? '#bd0026' :
-           speed > 15  ? '#f03b20' :
-           speed > 10  ? '#fd8d3c' :
-           speed > 5   ? '#fecc5c' :
-           speed > 0   ? '#ffffb2' :
+function getColor(users) {
+    return users > 80  ? '#bd0026' :
+           users > 60  ? '#f03b20' :
+           users > 40  ? '#fd8d3c' :
+           users > 20   ? '#fecc5c' :
+           users > 0   ? '#ffffb2' :
                       '#f9f9f9';
 }
 
 //function to put the colors into
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.speed),
+        fillColor: getColor(feature.properties.users),
         weight: 2,
         opacity: 1,
         color: 'white',
@@ -88,7 +88,7 @@ var legend = L.control({position: 'topleft'});
 legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 5, 10, 15, 20],
+			grades = [0, 20, 40, 60, 80],
 			labels = [],
 			from, to;
 
