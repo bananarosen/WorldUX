@@ -1,6 +1,6 @@
 
 #map {
-  height: 700px; 
+  height: 640px; 
   width: 100%;
 }
 
@@ -25,13 +25,22 @@ h1 {
     margin-left: 30px;
 }
 
-#legend {
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
     float: left;
-    border-color: lightgrey;
-    border-radius: 15px;
-    width: 500px;
-    height: 25px;
-    margin: auto;
-    background-image: linear-gradient(to right, yellow, red);
-    margin-top: 5px;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+    
+.info {
+    padding: 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
 }

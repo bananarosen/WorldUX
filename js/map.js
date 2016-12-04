@@ -15,7 +15,7 @@ function getColor(speed) {
            speed > 15  ? '#f03b20' :
            speed > 10  ? '#fd8d3c' :
            speed > 5   ? '#fecc5c' :
-           speed > 1   ? '#ffffb2' :
+           speed > 0   ? '#ffffb2' :
                       '#f9f9f9';
 }
 
@@ -72,7 +72,6 @@ function infoPopUp (e){
     var cName = country.feature.properties.name;
     var cSpeed = country.feature.properties.speed;
     country.bindPopup("<h4>" + cName + "</h4><p>Avg Internet Speed: " + cSpeed);
-    console.log(cName);
 }
 
 function onEachFeature(feature, layer) {
@@ -90,6 +89,31 @@ geojson = L.geoJson(countryData, {
     style: style,
     onEachFeature: onEachFeature
 }).addTo(map);
+
+//adding a legend
+var legend = L.control({position: 'topleft'});
+
+legend.onAdd = function (map) {
+
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [0, 5, 10, 15, 20],
+			labels = [],
+			from, to;
+
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+				'<i style="background:' + getColor(from + 1) + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+legend.addTo(map);
 
 
 /*pop up with the information about internet speed, percentage of population with internet access and smartphone access, and share of world internet users. Plus more button that leads to individual country pages. */
