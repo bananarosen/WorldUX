@@ -39,7 +39,7 @@ function highlightFeature(e) {
 
     layer.setStyle({
         weight: 4,
-        color: '#ccffcc',
+        color: '#330000',
         dashArray: '',
         fillOpacity: 0.7
     });
@@ -71,7 +71,8 @@ function infoPopUp (e){
     var country = e.target;
     var cName = country.feature.properties.name;
     var cSpeed = country.feature.properties.speed;
-    country.bindPopup("<h4>" + cName + "</h4><p>Avg Internet Speed: " + cSpeed);
+    var cUsers = country.feature.properties.users;
+    country.bindPopup("<h4>" + cName + "</h4><p>Average Internet Speed</p><b> " + cSpeed + "</b><p>Internet Users (% of population)</p><b> " + cUsers + "</b>").openPopup();
 }
 
 function onEachFeature(feature, layer) {

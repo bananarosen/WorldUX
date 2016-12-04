@@ -12,17 +12,69 @@ body {
 }
 #header {
     width: 100%;
-    background-color: forestgreen;
+    background-color: #330000;
+    padding-top: 5px;
 }
 
 h1 {
     color: ghostwhite;
+    margin-left: 15px;
+    display: inline;
+    font-size: 20px;
+    
+}
+
+#icon {
     margin-left: 30px;
-    margin-top:0px;
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.menu {
+/*    margin-bottom: 10px;*/
+    margin-top: 10px;
+}
+
+.menuItem {
+    font-size: 24px;
+}
+
+.nav>li>a {
+    padding: 2px 15px;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: gainsboro;
+    color: #333;
+}
+
+a {
+    color: darkgrey;
+}
+
+a p {
+    font-size: 10px;
 }
 
 #label {
     margin-left: 30px;
+}
+
+h4 {
+    color: #330000;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.leaflet-popup-content p{
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+b {
+    display: block;
+    text-align: center;
+    margin-top: 1px;
 }
 
 .legend {
