@@ -32,7 +32,7 @@ h1 {
 
 .menu {
 /*    margin-bottom: 10px;*/
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .menuItem {
@@ -75,6 +75,7 @@ b {
     display: block;
     text-align: center;
     margin-top: 1px;
+    font-size: 16px;
 }
 
 .legend {

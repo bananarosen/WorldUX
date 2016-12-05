@@ -66,6 +66,7 @@ function infoPopUp (e){
     country.bindPopup("<h4>" + cName + "</h4><p>Average Internet Speed</p><b> " + cSpeed + "</b><p>Internet Users (% of population)</p><b> " + cUsers + "</b>").openPopup();
 }
 
+// call the above listener functions
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature, 

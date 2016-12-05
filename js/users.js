@@ -11,11 +11,16 @@ countryTiles.addTo(map);
 
 //setting the gradient to display countries based on speed - gradient colors pulled from colorbrewer
 function getColor(users) {
-    return users > 80  ? '#bd0026' :
-           users > 60  ? '#f03b20' :
-           users > 40  ? '#fd8d3c' :
-           users > 20   ? '#fecc5c' :
-           users > 0   ? '#ffffb2' :
+    return users > 90  ? '#081d58' :
+           users > 80  ? '#253494' :
+           users > 70  ? '#225ea8' :
+           users > 60  ? '#1d91c0' :
+           users > 50  ? '#41b6c4' :
+           users > 40  ? '#7fcdbb' :
+           users > 30  ? '#c7e9b4' :
+           users > 20  ? '#edf8b1' :
+           users > 10  ? '#ffffd9' :
+           users > 0   ? '#fffff3' :
                       '#f9f9f9';
 }
 
@@ -39,7 +44,7 @@ function highlightFeature(e) {
 
     layer.setStyle({
         weight: 4,
-        color: '#330000',
+        color: '#000033',
         dashArray: '',
         fillOpacity: 0.7
     });
@@ -66,6 +71,7 @@ function infoPopUp (e){
     country.bindPopup("<h4>" + cName + "</h4><p>Average Internet Speed</p><b> " + cSpeed + "</b><p>Internet Users (% of population)</p><b> " + cUsers + "</b>").openPopup();
 }
 
+// call the above listener functions
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature, 
@@ -88,7 +94,7 @@ var legend = L.control({position: 'topleft'});
 legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 20, 40, 60, 80],
+			grades = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
 			labels = [],
 			from, to;
 
