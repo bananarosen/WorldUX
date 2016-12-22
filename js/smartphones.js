@@ -10,24 +10,19 @@ countryTiles.addTo(map);
 
 
 //setting the gradient to display countries based on speed - gradient colors pulled from colorbrewer
-function getColor(users) {
-    return users > 90  ? '#081d58' :
-           users > 80  ? '#253494' :
-           users > 70  ? '#225ea8' :
-           users > 60  ? '#1d91c0' :
-           users > 50  ? '#41b6c4' :
-           users > 40  ? '#7fcdbb' :
-           users > 30  ? '#c7e9b4' :
-           users > 20  ? '#edf8b1' :
-           users > 10  ? '#ffffd9' :
-           users > 0   ? '#fffff3' :
+function getColor(sphone) {
+    return sphone > 80  ? '#49006a' :
+           sphone > 60  ? '#7a0177' :
+           sphone > 40  ? '#f768a1' :
+           sphone > 20  ? '#fa9fb5' :
+           sphone > 0   ? '#fde0dd' :
                       '#f9f9f9';
 }
 
 //function to put the colors into
 function style(feature) {
     return {
-        fillColor: getColor(feature.properties.users),
+        fillColor: getColor(feature.properties.sphone),
         weight: 2,
         opacity: 1,
         color: 'white',
@@ -44,7 +39,7 @@ function highlightFeature(e) {
 
     layer.setStyle({
         weight: 4,
-        color: '#000033',
+        color: '#330000',
         dashArray: '',
         fillOpacity: 0.7
     });
@@ -95,7 +90,7 @@ var legend = L.control({position: 'topleft'});
 legend.onAdd = function (map) {
 
 		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+			grades = [0, 20, 40, 60, 80],
 			labels = [],
 			from, to;
 

@@ -63,7 +63,8 @@ function infoPopUp (e){
     var cName = country.feature.properties.name;
     var cSpeed = country.feature.properties.speed;
     var cUsers = country.feature.properties.users;
-    country.bindPopup("<h4>" + cName + "</h4><p>Average Internet Speed</p><b> " + cSpeed + "</b><p>Internet Users (% of population)</p><b> " + cUsers + "</b>").openPopup();
+    var cSphone = country.feature.properties.sphone; 
+    country.bindPopup("<h4>" + cName + "</h4><p>Average Internet Speed</p><b> " + cSpeed + "</b><p>Internet Users (% of population)</p><b> " + cUsers + "</b><p>Smartphone Users (% of population)</p><b> " + cSphone + "</b>").openPopup();
 }
 
 // call the above listener functions
